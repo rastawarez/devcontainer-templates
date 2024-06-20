@@ -19,8 +19,8 @@
 		"requireLocalPort": true
 	  }
 	},
-	"postCreateCommand": "bash .devcontainer/on-create.sh",
-	"postAttachCommand": "bash .devcontainer/on-attach.sh",
+	"postCreateCommand": "echo 'create kontajner'",
+	"postAttachCommand": "echo 'attach kontajner'",
 	"remoteUser": "node",
 	"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
 	"workspaceFolder": "/workspace"
