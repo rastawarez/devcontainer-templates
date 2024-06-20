@@ -1,0 +1,27 @@
+{
+	"name": "spfx-latest-imaspc",
+	"image": "docker.io/m365pnp/spfx:latest",
+	"forwardPorts": [
+	  4321,
+	  35729
+	],
+	"portsAttributes": {
+	  "4321": {
+		"protocol": "https",
+		"label": "Manifest",
+		"onAutoForward": "silent",
+		"requireLocalPort": true
+	  },
+	  "35729": {
+		"protocol": "https",
+		"label": "LiveReload",
+		"onAutoForward": "silent",
+		"requireLocalPort": true
+	  }
+	},
+	"postCreateCommand": "bash .devcontainer/on-create.sh",
+	"postAttachCommand": "bash .devcontainer/on-attach.sh",
+	"remoteUser": "node",
+	"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
+	"workspaceFolder": "/workspace"
+  }
