@@ -5,6 +5,7 @@
 	  4321,
 	  35729
 	],
+	"runArgs": ["--name", "${localEnv:USER}_spfx"],
 	"portsAttributes": {
 	  "4321": {
 		"protocol": "https",
@@ -19,9 +20,9 @@
 		"requireLocalPort": true
 	  }
 	},
-	"postAttachCommand": "bash echo 'ATTACH ' > atach.txt",
-	"postCreateCommand": "bash echo 'contajnerik ' > create.txt",
+	"postAttachCommand": "pwd",
 	"remoteUser": "node",
-	"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
+	//"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
+	"workspaceMount": "source=${localEnv:USER}_spfx,target=/workspace,type=volume",
 	"workspaceFolder": "/workspace"
   }
