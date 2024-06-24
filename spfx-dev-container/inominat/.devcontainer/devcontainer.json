@@ -6,13 +6,13 @@
 	  35729
 	],
 	"appPort": [
-		"4321"
+		"4321:4322"
 	],
-	"runArgs": ["--name", "imaspc_spfx"],
+	"runArgs": ["--name", "inominat_spfx","--env-file",".devcontainer/devcontainer.env"],
 	"postAttachCommand": "ls -al",
 	"initializeCommand":'sh -c on-init.sh',
 	"remoteUser": "node",
 	//"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
-	"workspaceMount": "source=imaspc_spfx,target=/workspace,type=volume",
+	"workspaceMount": "source=inominat_spfx,target=/workspace,type=volume",
 	"workspaceFolder": "/workspace"
-  }
+}

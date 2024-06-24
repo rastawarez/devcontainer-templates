@@ -1,0 +1,36 @@
+{
+    "id": "spfx-dev-container",
+    "version": "1.1.0",
+    "name": "SPFx",
+    "description": "SharePoint Framework",
+    "options": {
+        "name": {
+            "type": "string",
+            "description": "The name of the container:",
+            "default": "SPFx"
+        },
+        "volume": {
+            "type": "string",
+            "description": "The name of the volume:",
+            "default": "spfx"
+        },
+        "version": {
+            "type": "string",
+            "description": "The version of SharePoint Framework the project will use:",
+            "proposals": [
+                "1.18.2",
+                "1.18.1",
+                "1.18",
+                "1.17.4",
+                "1.17.3",
+                "1.17.2",
+                "1.17.1",
+                "1.17"
+            ],
+            "default": "latest"
+        }
+    },
+    "platforms": [
+        "Any"
+    ]
+}
