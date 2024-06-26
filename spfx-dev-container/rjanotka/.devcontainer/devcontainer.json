@@ -1,7 +1,7 @@
 {
 	"name": "spfx-latest-imaspc",
-	"image": "docker.io/m365pnp/spfx:latest",
-	"forwardPorts": [
+	"image": "m365pnp/spfx",
+	 	"forwardPorts": [
 	  4321, 
 	  35729
 	],
@@ -10,9 +10,12 @@
 		"35729:35731"
 	],
 	"runArgs": ["--name", "rjanotka_spfx","--env-file",".devcontainer/devcontainer.env"],
-	"initializeCommand": "env",
-	"postStartCommand":"cd /workspace && git clone ${CLONE_PROJECT}",
-	"remoteUser": "root",
-	"workspaceMount": "source=rjanotka_spfx,target=/workspace,type=volume",
-	"workspaceFolder": "/workspace"
+	"initializeCommand": "ls -al",
+	"postStartCommand":"cd /workspaces && git -c http.sslVerify=false clone ${CLONE_PROJECT}",
+	//"postCreateCommand":"echo ${localWorkspaceFolder} && cd /workspace && git -c http.sslVerify=false clone ${CLONE_PROJECT}",
+	// && npm i --location=global gulp-cli@2 yo @microsoft/generator-sharepoint@1.18.0"
+	"remoteUser": "spfx",
+//	"workspaceMount": "source=rjanotka_spfx,target=/workspace,type=volume",
+	"workspaceMount": "source=${localWorkspaceFolder}/.devcontainer,target=/workspaces,type=bind,consistency=delegated",
+	"workspaceFolder": "/workspaces"
   }
