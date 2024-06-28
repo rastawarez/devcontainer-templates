@@ -8,11 +8,10 @@
 	"appPort": [
 		"4321:4322"
 	],
-	"runArgs": ["--name", "inominat_spfx","--env-file",".devcontainer/devcontainer.env"],
+	"runArgs": ["--name", "inominat_spfx"],
 	"postAttachCommand": "ls -al",
-	"initializeCommand":'sh -c on-init.sh',
-	"remoteUser": "node",
-	//"workspaceMount": "spfx-latest-imaspc,target=/workspace,type=volume",
-	"workspaceMount": "source=inominat_spfx,target=/workspace,type=volume",
-	"workspaceFolder": "/workspace"
+	"initializeCommand":'echo "::: init :::"',
+	"remoteUser": "spfx",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=delegated",
+	"workspaceFolder": "/workspaces"
 }

@@ -1,0 +1,19 @@
+{
+	"name": "spfx-latest-imaspc",
+	"image": "m365pnp/spfx",
+ 	"forwardPorts": [
+	  4321, 
+	  35729
+	],
+	"appPort": [
+		"4321:4323",
+		"35729:35731"
+	],
+	"runArgs": ["--name", "playground_spfx","--env-file","${localWorkspaceFolder}/.devcontainer/devcontainer.env"],
+	"remoteUser": "spfx",
+	"initializeCommand":"docker volume prune --filter all=1 -f",
+	"postCreateCommand":"mkdir -p /home/spfx/projects",
+	"postStartCommand": "cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached",
+	"workspaceFolder": "/home/spfx"
+  }
