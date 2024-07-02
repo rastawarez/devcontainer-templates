@@ -24,7 +24,7 @@
         }
     },
  //   "initializeCommand": "docker volume prune --filter all=1 -f",
-    "postCreateCommand": "mkdir -p /home/spfx/projects && cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
+ //   "postCreateCommand": "mkdir -p /home/spfx/projects && cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
     "postStartCommand": "ls -al",
     //"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached",
     "postAttachCommand": "code --wait /home/spfx/projects/spfx/README.md",
