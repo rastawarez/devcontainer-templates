@@ -1,19 +1,32 @@
 {
-	"name": "spfx-latest-imaspc",
-	"image": "m365pnp/spfx",
- 	"forwardPorts": [
-	  4321, 
-	  35729
-	],
-	"appPort": [
-		"4321:4323",
-		"35729:35731"
-	],
-	"runArgs": ["--name", "playground_spfx","--env-file","${localWorkspaceFolder}/.devcontainer/devcontainer.env"],
-	"remoteUser": "spfx",
-	"initializeCommand":"docker volume prune --filter all=1 -f",
-	"postCreateCommand":"mkdir -p /home/spfx/projects",
-	"postStartCommand": "cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached",
-	"workspaceFolder": "/home/spfx"
-  }
+    "name": "spfx-latest-imaspc",
+    "image": "m365pnp/spfx",
+    "forwardPorts": [
+        4321,
+        35729
+    ],
+    "appPort": [
+        "4321:4323",
+        "35729:35731"
+    ],
+    "runArgs": [
+        "--name",
+        "playground_spfx",
+        "--env-file",
+        "${localWorkspaceFolder}/.devcontainer/devcontainer.env"
+    ],
+    "remoteUser": "spfx",
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "projects/spfx/README.md","projects/spfx/README.md"
+            ]
+        }
+    },
+ //   "initializeCommand": "docker volume prune --filter all=1 -f",
+    "postCreateCommand": "mkdir -p /home/spfx/projects && cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
+    "postStartCommand": "ls -al",
+    //"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached",
+    "postAttachCommand": "code --wait /home/spfx/projects/spfx/README.md",
+    "workspaceFolder": "/home/spfx"
+}
