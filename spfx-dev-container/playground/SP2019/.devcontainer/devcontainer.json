@@ -1,6 +1,6 @@
 {
-	"name": "spfx-latest-imaspc",
-	"image": "m365pnp/spfx:latest",
+	"name": "spfx-playground-SPSE",
+	"image": "m365pnp/spfx:1.11.0",
  	"forwardPorts": [
 	  4321, 
 	  35729,
@@ -13,11 +13,10 @@
 		"5432:5432"
 	],
 	"runArgs": [
-		"--name", "imaspc_spfx",
+		"--name", "spfx-playground-spse",
 		"--env-file","${localWorkspaceFolder}/.devcontainer/devcontainer.env"
-//		"--add-host","[rasto-hpcompaqelite8300sff]:0.0.0.0"
 	],
-//	"postStartCommand":"export NODE_NO_HTTP2=1",
+	"postStartCommand":"export NODE_NO_HTTP2=1",
      //"postStartCommand":"cd /home/spfx && git -c http.sslVerify=false clone ${CLONE_PROJECT}",
 	"remoteUser": "spfx",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=delegated",

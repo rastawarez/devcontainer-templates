@@ -1,32 +1,25 @@
 {
-    "name": "spfx-latest-imaspc",
-    "image": "m365pnp/spfx",
-    "forwardPorts": [
-        4321,
-        35729
-    ],
-    "appPort": [
-        "4321:4323",
-        "35729:35731"
-    ],
-    "runArgs": [
-        "--name",
-        "playground_spfx",
-        "--env-file",
-        "${localWorkspaceFolder}/.devcontainer/devcontainer.env"
-    ],
-    "remoteUser": "spfx",
-    "customizations": {
-        "codespaces": {
-            "openFiles": [
-                "projects/spfx/README.md","projects/spfx/README.md"
-            ]
-        }
-    },
- //   "initializeCommand": "docker volume prune --filter all=1 -f",
-    "postCreateCommand": "mkdir -p /home/spfx/projects && cd /home/spfx/projects && git clone https://rastawarez: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@github.com/rastawarez/spfx",
-    "postStartCommand": "ls -al",
-    //"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached",
-    //"postAttachCommand": "code --wait /home/spfx/projects/spfx/README.md",
-    "workspaceFolder": "/home/spfx"
-}
+	"name": "spfx-latest-imaspc",
+	"image": "m365pnp/spfx:latest",
+ 	"forwardPorts": [
+	  4321, 
+	  35729,
+	  5432
+
+	],
+	"appPort": [
+		"4321:4321",
+		"35729:35729",
+		"5432:5432"
+	],
+	"runArgs": [
+		"--name", "imaspc_spfx",
+		"--env-file","${localWorkspaceFolder}/.devcontainer/devcontainer.env"
+//		"--add-host","[rasto-hpcompaqelite8300sff]:0.0.0.0"
+	],
+//	"postStartCommand":"export NODE_NO_HTTP2=1",
+     //"postStartCommand":"cd /home/spfx && git -c http.sslVerify=false clone ${CLONE_PROJECT}",
+	"remoteUser": "spfx",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=delegated",
+	"workspaceFolder": "/home/spfx"
+  }
